@@ -2,9 +2,9 @@
 
 ### Personal Details
 
-Name- Ishan Pattnayak
-College- IIIT Bhubaneswar
-College Id- B119026
+- Name- Ishan Pattnayak
+- College- IIIT Bhubaneswar
+- College Id- B119026
 
 ### Deplyment
 Website is now live!! - https://whispering-shore-06308.herokuapp.com/
