@@ -4,14 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/index.css">
     <%- include('./partials/partial.ejs') %>
 </head>
 <body>
     <main>
 
-        <h2 class="heading">Text/File Sharer</h2>
+        <h2 class="heading">API & Integration</h2>
 
-        <a href="/form">Upload something...</a><br>
+        <a href="/form">Post Codes</a><br>
+
+        <% if (records.length> 0) { %>
+            <% records.forEach( item=> { %>
+                <div class="message">
+                    <!-- <p class="name"></p> -->
+                    <p class="content">
+                        <%= item.title %>
+                    </p>
+                    <a href="/code/<%- item._id %> ">View Code</a>
+                    <a href="/delete/<%- item._id %> ">Delete Code</a>
+                </div>
+            <% }) %>
+        <% } else {%>
+            <div class="message">
+                No Codes... Click on Post to add more....
+            </div>
+        <% } %>
+        
         
     </main>
 </body>

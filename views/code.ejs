@@ -5,8 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('./partials/partial.ejs') %>
+    <link rel="stylesheet" href="/static/css/code.css">
 </head>
 <body>
-    <p>Code page working</p>
+
+    <main>
+
+        <h2 class="heading">API & Integration</h2>
+
+        <a href="/form">Post Codes</a><br>
+        <a href="/">View Codes</a>
+
+        <div class="code-view">
+            <p class="title"><b><%- record.title %></b></p><br>
+            <p class="code">
+                <%- record.code %> 
+            </p>
+        </div>
+    </main>
+
 </body>
+
 </html>
