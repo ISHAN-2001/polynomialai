@@ -7,11 +7,38 @@ let path = require('path')
 //--DB Models--//
 let CodeModel = require("../models/code");
 
+var flag = 0;
+
+async function checkrecords() {
+    if (flag == 1) {
+        return;
+    }
+    try {
+        date = Date.now();
+        const record = await CodeModel.find()
+        record.forEach(item => {
+            
+            if (date - item.created > 24 * 60 * 60 * 1000) {
+                //delete the record
+                CodeModel.findByIdAndDelete(item._id)
+                    .then(a => {
+                        flag = 1;
+                    })
+                    .catch(err=>{
+                    console.log(err);
+                })
+
+            }
+        })
+    } catch (error) {
+        console.log("Error")
+    }
+}
 
 //-- Routes -- //
-
 router.get('/', (req, res) => {
     // res.render('home')
+    checkrecords();
     CodeModel.find()
     .sort({_id:-1})
     .then((records) => {
