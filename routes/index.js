@@ -3,6 +3,7 @@ var express = require('express');
 const res = require('express/lib/response');
 const router = express.Router()
 let path = require('path')
+var shortUrl = require('node-url-shortener');
 
 //--DB Models--//
 let CodeModel = require("../models/code");
@@ -59,11 +60,20 @@ router.get("/form", (req, res) => {
 router.get('/code/:id', async(req, res) => {
     
     let id = req.params.id;
+    let url = `https://whispering-shore-06308.herokuapp.com/code/${id}`;
+    let shorturl = "";
 
     try {
         const r1 = await CodeModel.findById(id)
         //console.log(r1);
-        res.render('code',{'record':r1});
+        console.log(r1);
+        shortUrl.short(url, function(err, url){
+            //console.log(url);
+            //console.log("Inside func")
+            shorturl = url;
+            console.log(shorturl);
+            res.render('code', { 'record': r1,'shortUrl':shorturl});
+        });
     } catch (error) {
         console.log("Error");
         res.redirect('/error');

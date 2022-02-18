@@ -18,6 +18,9 @@
 
         <div class="code-view">
             <p class="title"><b><%- record.title %></b></p><br>
+            <p class="title">Short Url- <a href="<%- shortUrl %> " class="copy"><%- shortUrl %> </a></p>
+            <button onclick="func()" id="copybutton">Copy Link</button><br>
+            <!-- <button onclick=">Copy Links</button> -->
             <p class="code">
                 <%- record.code %> 
             </p>
@@ -26,6 +29,23 @@
     <div class="footer">
         <p>Name: Ishan Pattnayak , College: IIIT BBSR</p>
       </div>
+
+      <script>
+          // To copy link
+          function func() {
+                text = document.querySelector(".copy").innerHTML;
+                console.log(text)
+                navigator.clipboard.writeText(text).then(function () {
+                    /* clipboard successfully set */
+                    document.getElementById("copybutton").innerHTML = "Copied!";
+                    console.log("Successful");
+                }, function () {
+                    /* clipboard write failed */
+                    console.log("Failed");
+                });
+
+            }
+    </script>
 </body>
 
 </html>
