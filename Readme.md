@@ -24,3 +24,6 @@ This is a Polynomial AI 2022 Internship API & Integration Assignment. Users can 
 3. Change ```npm start```
 
 **Note** : Users must have NodeJs and MongoDB installed.~
+
+### Issues
+⚠ Used [node-url-shortener](https://www.npmjs.com/package/node-url-shortener) library to shorten the Url. This will cause a delay of 5s to show an advertisement beyond my control. Inconvience is regretted. Looking for more Url shortner alternatives.
